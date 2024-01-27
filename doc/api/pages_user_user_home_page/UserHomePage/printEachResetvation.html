@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the printEachResetvation method from the UserHomePage class, for the Dart programming language.">
+  <title>printEachResetvation method - UserHomePage class - user_home_page library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../../" data-using-base-href="false" class="light-theme">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">programming_assignment_3</a></li>
+    <li><a href="../../pages_user_user_home_page/pages_user_user_home_page-library.html">user_home_page</a></li>
+    <li><a href="../../pages_user_user_home_page/UserHomePage-class.html">UserHomePage</a></li>
+    <li class="self-crumb">printEachResetvation method</li>
+  </ol>
+  <div class="self-name">printEachResetvation</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        brightness_4
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        brightness_5
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+
+  <div
+      id="dartdoc-main-content"
+      class="main-content"
+      data-above-sidebar="pages_user_user_home_page&#47;UserHomePage-class-sidebar.html"
+      data-below-sidebar="">
+      <div>
+<h1><span class="kind-method">printEachResetvation</span> method 
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+
+<span class="returntype"><a href="https://api.dart.dev/stable/3.2.6/dart-async/Future-class.html">Future</a></span>
+<span class="name ">printEachResetvation</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="printEachResetvation-param-listOfResevations"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.2.6/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../../models_reservation_model/Reservation-class.html">Reservation</a></span>&gt;</span></span> <span class="parameter-name">listOfResevations</span></span></li>
+</ol>)
+
+      
+
+    </section>
+    
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">Future printEachResetvation(List&lt;Reservation&gt; listOfResevations) async {
+  print(&quot;Reservation list ... : &quot;);
+
+  if (listOfResevations.isEmpty) {
+    print(&#39;There is no reservations ... &#39;);
+    print(&#39;1. Create Reser.\n2. Return\n0. Exit&#39;);
+
+    String userInput = stdin.readLineSync() ?? &#39;0&#39;;
+    switch (userInput) {
+      case &#39;1&#39;:
+        Navigator.push(CreateReservation());
+        break;
+      case &#39;2&#39;:
+        Navigator.pop();
+        break;
+      case &#39;0&#39;:
+        exit(0);
+      default:
+    }
+  } else {
+    listOfResevations.asMap().forEach((index, item) {
+      print(&#39;aaa&#39;);
+      print(&quot;${index + 1}. ${item.phoneNumber} ${item.totalPrice}&quot;);
+    });
+  }
+
+  print(&quot;Show details of reser ... (choose the number of reservation)&quot;);
+  print(&quot;01. Create\n02. Return\n0. Exit&quot;);
+  String userInput = stdin.readLineSync() ?? &#39;0&#39;;
+  int selectedIndex = int.tryParse(userInput) ?? 0;
+  switch (userInput) {
+    case &#39;01&#39;:
+      Navigator.push(CreateReservation());
+      break;
+    case &#39;02&#39;:
+      Navigator.pushReplacement(AdminHomePage());
+      break;
+    case &#39;0&#39;:
+      exit(0);
+
+    default:
+      if (selectedIndex &gt; 0 &amp;&amp; selectedIndex &lt;= listOfResevations.length) {
+        Reservation selectedReservation =
+            listOfResevations[selectedIndex - 1];
+        await Navigator.push(
+            DetailReservationPage(selectedReservation, selectedIndex));
+      } else {
+        print(&#39;Invalid input&#39;);
+      }
+  }
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../../index.html">programming_assignment_3</a></li>
+    <li><a href="../../pages_user_user_home_page/pages_user_user_home_page-library.html">user_home_page</a></li>
+    <li><a href="../../pages_user_user_home_page/UserHomePage-class.html">UserHomePage</a></li>
+    <li class="self-crumb">printEachResetvation method</li>
+</ol>
+
+
+    <h5>UserHomePage class</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    programming_assignment_3
+      1.0.0
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+
+
+</body>
+
+</html>
+
