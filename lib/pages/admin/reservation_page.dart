@@ -5,6 +5,7 @@ import 'package:programming_assignment_3/pages/admin/admin_home_page.dart';
 import 'package:programming_assignment_3/services/app_menu.dart';
 import 'package:programming_assignment_3/services/get_reservation.dart';
 import 'package:programming_assignment_3/services/navigator_service.dart';
+import 'package:programming_assignment_3/services/options.dart';
 
 class AdminReservationPage extends AppMenu {
   @override
@@ -34,12 +35,12 @@ class AdminReservationPage extends AppMenu {
     } else {
       print("There is no any reservation yet ... ");
       print("1. Return\n0. Exit");
-      String userInput = stdin.readLineSync() ?? '0';
-      switch (userInput) {
-        case '1':
+      int userChoice = getUserInput(2);
+      switch (userChoice) {
+        case 1:
           Navigator.pop();
           break;
-        case '0':
+        case 0:
           exit(0);
         default:
       }
@@ -70,12 +71,12 @@ class AdminReservationPage extends AppMenu {
     print('');
 
     print("1. Return\n0. Exit");
-    String userInput = stdin.readLineSync() ?? '0';
-    switch (userInput) {
-      case '1':
+    int userChoice = getUserInput(2);
+    switch (userChoice) {
+      case 1:
         Navigator.pop();
         break;
-      case '0':
+      case 0:
         exit(0);
       default:
     }

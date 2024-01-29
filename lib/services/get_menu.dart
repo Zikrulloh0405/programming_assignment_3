@@ -13,69 +13,6 @@ List<Product> menuList = [
     receptOfProduct: ['Sabzi, Piyoz'],
     descriptionOfProduct: 'Mazzali',
   ),
-  Product(
-    categoryOfProduct: 'Beverage',
-    nameOfProduct: 'Green Tea',
-    priceOfProduct: 2,
-    receptOfProduct: ['Green tea leaves'],
-    descriptionOfProduct: 'Refreshing and healthy',
-  ),
-  Product(
-    categoryOfProduct: 'Dessert',
-    nameOfProduct: 'Chocolate Cake',
-    priceOfProduct: 8,
-    receptOfProduct: ['Chocolate, Flour, Sugar'],
-    descriptionOfProduct: 'Indulge in the rich chocolate goodness',
-  ),
-  Product(
-    categoryOfProduct: 'Snack',
-    nameOfProduct: 'Popcorn',
-    priceOfProduct: 3,
-    receptOfProduct: ['Corn kernels, Butter'],
-    descriptionOfProduct: 'Light and crunchy movie-time snack',
-  ),
-  Product(
-    categoryOfProduct: 'Salad',
-    nameOfProduct: 'Greek Salad',
-    priceOfProduct: 6,
-    receptOfProduct: ['Tomatoes, Cucumbers, Feta cheese'],
-    descriptionOfProduct: 'A healthy mix of fresh veggies and cheese',
-  ),
-  Product(
-    categoryOfProduct: 'Drink',
-    nameOfProduct: 'Mango Smoothie',
-    priceOfProduct: 4,
-    receptOfProduct: ['Mango, Yogurt, Honey'],
-    descriptionOfProduct: 'A tropical delight in a glass',
-  ),
-  Product(
-    categoryOfProduct: 'Appetizer',
-    nameOfProduct: 'Spinach Dip',
-    priceOfProduct: 7,
-    receptOfProduct: ['Spinach, Cream cheese, Garlic'],
-    descriptionOfProduct: 'Creamy and flavorful dip for starters',
-  ),
-  Product(
-    categoryOfProduct: 'Main Course',
-    nameOfProduct: 'Chicken Alfredo Pasta',
-    priceOfProduct: 10,
-    receptOfProduct: ['Chicken, Alfredo sauce, Pasta'],
-    descriptionOfProduct: 'A classic Italian dish with a creamy twist',
-  ),
-  Product(
-    categoryOfProduct: 'Side Dish',
-    nameOfProduct: 'Garlic Bread',
-    priceOfProduct: 3,
-    receptOfProduct: ['Bread, Butter, Garlic'],
-    descriptionOfProduct: 'Buttery and garlicky goodness on the side',
-  ),
-  // Product(
-  //   categoryOfProduct: 'Dessert',
-  //   nameOfProduct: 'Strawberry Cheesecake',
-  //   priceOfProduct: 9,
-  //   receptOfProduct: ['Strawberries, Cream cheese, Graham cracker crust'],
-  //   descriptionOfProduct: 'Sweet and creamy delight for your sweet tooth',
-  // ),
 ];
 
 void viewMenu(List<Product> listOfMenu) {
@@ -90,16 +27,6 @@ void viewMenu(List<Product> listOfMenu) {
       print("Description: ${product.descriptionOfProduct}");
       print("-----------------------------");
     });
-    // print("1. Return\n0. Exit");
-    // String userInput = stdin.readLineSync() ?? '0';
-    // switch (userInput) {
-    //   case '1':
-    //     Navigator.pop();
-    //     break;
-    //   case '0':
-    //     exit(0);
-    //   default:
-    // }
   }
 }
 

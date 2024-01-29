@@ -5,6 +5,7 @@ import 'package:programming_assignment_3/pages/admin/admin_home_page.dart';
 import 'package:programming_assignment_3/services/app_menu.dart';
 import 'package:programming_assignment_3/services/get_menu.dart';
 import 'package:programming_assignment_3/services/navigator_service.dart';
+import 'package:programming_assignment_3/services/options.dart';
 
 class DetailProductPage extends AppMenu {
   final Product selectedProduct;
@@ -14,24 +15,24 @@ class DetailProductPage extends AppMenu {
   @override
   Future<void> build() async {
     print('Detail of ${selectedProduct.nameOfProduct}');
-     viewMenu([selectedProduct]);
-    print('1. Update this product      2. Delete Product   3. Return');
-    String? userInput = stdin.readLineSync();
-    switch (userInput) {
-      case '1':
-        updateProduct(
-          selectedProduct, currentProductIndex - 1
-        );
+    viewMenu([selectedProduct]);
+    print("""
+1. Update this product      2. Delete Product   3. Return
+""");
+    int userChoice = getUserInput(4);
+    switch (userChoice) {
+      case 1:
+        updateProduct(selectedProduct, currentProductIndex - 1);
         Navigator.push(AdminHomePage());
         break;
-      case '2':
+      case 2:
         deleteProduct(currentProductIndex - 1);
         Navigator.push(AdminHomePage());
         break;
-      case '3':
+      case 3:
         Navigator.pop();
         break;
-      case '0':
+      case 0:
         exit(0);
       default:
     }

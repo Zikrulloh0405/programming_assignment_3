@@ -1,9 +1,8 @@
 import 'package:programming_assignment_3/services/app_menu.dart';
 class MyApp {
-  static Map<String, AppMenu> routeAppMenu = {};
+  // static Map<String, AppMenu> routeAppMenu = {};
 
-  MyApp({required AppMenu home, required Map<String, AppMenu> routes}) {
-    routeAppMenu = routes;
+  MyApp({required AppMenu home}) {
     _runApp(home);
   }
 

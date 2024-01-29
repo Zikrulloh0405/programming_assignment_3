@@ -33,7 +33,7 @@ Future printListOfProducts(List<Product> listOfMenu) async {
   } else {
     listOfMenu.asMap().forEach((index, product) {
       print(
-          "${index + 1} ${product.nameOfProduct.padRight(15)} : ${product.priceOfProduct.toString().padLeft(15)} \$");
+          "${index + 1} ${product.nameOfProduct.padRight(25)} : ${product.priceOfProduct.toString().padLeft(20)} \$");
     });
 
     print("Show detail page of product ... (select product by number)");

@@ -31,7 +31,6 @@ class CreateReservation extends AppMenu {
       }
     }
 
-    // Format the name with the first letter in uppercase and the rest in lowercase
     name = name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();
 
     String phoneNumber = '';
@@ -47,6 +46,8 @@ class CreateReservation extends AppMenu {
 
     phoneNumber = '+998' + phoneNumber;
 
+
+    //! in the following, it checks for valid date time
     DateTime date;
     String formattedDate = '';
     while (formattedDate.isEmpty) {
@@ -117,7 +118,6 @@ class CreateReservation extends AppMenu {
       {"seats": 6, "category": "max_3"},
     ];
 
-    // Filter tables based on the number of guests
     List<Map<String, dynamic>> availableTables = [];
     if (numberOfGuests == 2) {
       availableTables = tables.where((table) => table['seats'] == 2).toList();
@@ -127,7 +127,6 @@ class CreateReservation extends AppMenu {
       availableTables = tables.where((table) => table['seats'] == 6).toList();
     }
 
-    // Filter available tables based on the time
     List<String> availableTableStrings = [];
     for (var table in availableTables) {
       var category = table['category'];
@@ -229,6 +228,10 @@ class CreateReservation extends AppMenu {
     return input;
   }
 
+  bool isNameValid(String name) {
+    return RegExp(r'^[a-zA-Z]+$').hasMatch(name);
+  }
+
   bool isDateValid(DateTime date) {
     DateTime today = DateTime.now();
     DateTime oneMonthFromToday = today.add(Duration(days: 30));
@@ -252,8 +255,4 @@ class CreateReservation extends AppMenu {
     return totalPrice;
   }
 
-  bool isNameValid(String name) {
-    // Use a regular expression to check if the name contains only letters
-    return RegExp(r'^[a-zA-Z]+$').hasMatch(name);
-  }
 }

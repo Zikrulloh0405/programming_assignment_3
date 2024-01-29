@@ -4,6 +4,7 @@ import 'package:programming_assignment_3/pages/user/menu_page.dart';
 import 'package:programming_assignment_3/pages/user/resevation_page.dart';
 import 'package:programming_assignment_3/services/app_menu.dart';
 import 'package:programming_assignment_3/services/navigator_service.dart';
+import 'package:programming_assignment_3/services/options.dart';
 
 class UserHomePage extends AppMenu {
   @override
@@ -14,21 +15,20 @@ class UserHomePage extends AppMenu {
     print('3. Return');
     print('0. Exit');
 
-    String? userInput = stdin.readLineSync();
+    int choice = getUserInput(4);
 
-    switch (userInput) {
-      case '1':
+    switch (choice) {
+      case 1:
         Navigator.push(UserReservationPage());
         break;
-      case '2':
+      case 2:
         Navigator.push(UserMenuPage());
         break;
-      case '3':
+      case 3:
         Navigator.pushReplacement(HomePage());
         break;
-      case '0':
+      case 0:
         exit(0);
-      default:
     }
   }
 }
